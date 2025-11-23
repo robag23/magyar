@@ -91,6 +91,27 @@
       border-color: #38bdf8;
     }
 
+    /* LANGUAGE SWITCH */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    .lang-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.15rem 0.6rem;
+      cursor: pointer;
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+    }
+    .lang-btn:hover {
+      border-color: #38bdf8;
+    }
+
     /* HERO – dinamikus tech háttér */
     .hero {
       position: relative;
@@ -428,6 +449,9 @@
 </head>
 <body>
 
+<!-- HIDDEN Google Translate element -->
+<div id="google_translate_element" style="display:none;"></div>
+
 <header>
   <div class="nav container">
     <div class="nav-left">
@@ -442,6 +466,23 @@
       <a href="#documents">Dokumentumok</a>
       <a href="#contact">Kapcsolat</a>
     </nav>
+
+    <div class="lang-switch">
+      <span style="color:#9ca3af;">Nyelv:</span>
+      <!-- HU: mindig a .hu oldalra -->
+      <button class="lang-btn"
+              onclick="window.location.href='https://gulyasgabor.hu'; return false;">
+        HU
+      </button>
+      <!-- EN: mindig a .com oldalra -->
+      <button class="lang-btn"
+              onclick="window.location.href='https://gulyasgabor.com'; return false;">
+        EN
+      </button>
+      <!-- DE / HR: Google Translate a magyar oldalról -->
+      <button class="lang-btn" onclick="translatePage('de')">DE</button>
+      <button class="lang-btn" onclick="translatePage('hr')">HR</button>
+    </div>
   </div>
 </header>
 
@@ -808,7 +849,27 @@
 <script>
   // dinamikus év
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Google Translate init (magyar az alapnyelv)
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'hu' }, 'google_translate_element');
+  }
+
+  // programozott nyelvváltás DE / HR-hez
+  function translatePage(language) {
+    var translateElement = document.querySelector("#google_translate_element select");
+    if (translateElement) {
+      for (var i = 0; i < translateElement.options.length; i++) {
+        if (translateElement.options[i].value.indexOf(language) > -1) {
+          translateElement.selectedIndex = i;
+          translateElement.dispatchEvent(new Event('change'));
+          break;
+        }
+      }
+    }
+  }
 </script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
