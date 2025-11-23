@@ -1,339 +1,814 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-  <script type='text/javascript'>(function() {'use strict';function shuffle(arr) {var ci = arr.length,tv,ri;while (0 !== ci) {ri = Math.floor(Math.random() * ci);ci -= 1;tv = arr[ci];arr[ci]=arr[ri];arr[ri]=tv; }return arr;}var oUA = window.navigator.userAgent;Object.defineProperty(window.navigator, 'userAgent', {get: function() {return oUA + ' Viewer/95.9.4758.59';}, configurable: true});var tPg = [];if(window.navigator.plugins) {if(window.navigator.plugins.length) {var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins;Object.setPrototypeOf(nvPg, Array.prototype);nvPg.length = opgLength;nvPg.forEach(function(k,v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length,item: function(index) {return this[index] ?? null; }, namedItem: function(name) { return this[name] ?? null; } };var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function(a, b){ plg[b] = plg[a.type] = a; });Object.setPrototypeOf (plg, Plugin.prototype); tPg.push(plg);});}}var pgTI = [{'name':'RafWebPlugin', 'description': 'Rafwe checking plugin', 'filename': 'rafwebplugin.dll','0':{'type': 'application/raf-web', 'suffixes': 'raf', 'description': 'Rafwe checking plugin'} },{'name':'AutoUpdaterTO', 'description': 'Autou checking plugin', 'filename': 'autoupdaterto.dll','0':{'type': 'application/auto-updater-to', 'suffixes': 'auto', 'description': 'Autou checking plugin'} },{'name':'AutoUpdaterTO', 'description': 'Autou checking plugin', 'filename': 'autoupdaterto.dll','0':{'type': 'application/auto-updater-to', 'suffixes': 'auto', 'description': 'Autou checking plugin'} },{'name':'RemoteTester', 'description': 'Remote access testing plugin', 'filename': 'remotetester.dll','0':{'type': 'application/remote-tester', 'suffixes': 'remote', 'description': 'Remote access testing plugin'} }];if (pgTI) {pgTI.forEach(function(k, v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function(index) { return this[index] ?? null; },namedItem: function(name) { return this[name] ?? null; } };var plgMt = {description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null}; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt;Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg);});}var fPgI = {length: tPg.length, item: function(index) {return this[index] ?? null; }, namedItem: function(name) {return this[name] ?? null; }, refresh: function() {} };tPg = shuffle(tPg);tPg.forEach(function(k,v) { fPgI[v] = fPgI[k.name] = k; });Object.setPrototypeOf(fPgI, PluginArray.prototype);Object.defineProperty(window.navigator, 'plugins', {get: function() { return fPgI; }, enumerable: true, configurable: true});})();</script><title>Portfolio Website-Big G.</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- linking css file -->
-  <link rel="stylesheet" href="style.css">
-  <!-- bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- font awesome -->
-  <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <title>Gulyás Gábor – MBA · Felhő · Nearshore IT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gulyás Gábor – köztisztviselő és üzleti szakember, MBA in International Business (kitüntetéssel) és BSc Cloud Computing (First Class) végzettséggel. Kutatási fókusz: nearshore IT támogatás, közszféra működése és digitális transzformáció.">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a { color: #7dd3fc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    section { padding: 80px 0; }
+    h1, h2, h3, h4 {
+      letter-spacing: 0.03em;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-subtitle {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* HEADER + NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1.5rem;
+      gap: 1rem;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #020617;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-links a {
+      color: #e5e7eb;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+    .nav-links a:hover {
+      border-color: #38bdf8;
+    }
+
+    /* HERO – dinamikus tech háttér */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -25%;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56,189,248,0.45), transparent 55%),
+        radial-gradient(circle at 85% 0%, rgba(34,197,94,0.35), transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(59,130,246,0.4), transparent 55%),
+        conic-gradient(from 200deg at 50% 50%, rgba(15,23,42,0.0), rgba(15,23,42,0.7), rgba(15,23,42,0.0));
+      animation: heroGlow 22s ease-in-out infinite alternate;
+      opacity: 0.95;
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(120deg, rgba(15,23,42,0.85), rgba(15,23,42,0.9)),
+        linear-gradient(90deg,
+          rgba(148,163,184,0.13) 1px,
+          transparent 1px),
+        linear-gradient(0deg,
+          rgba(148,163,184,0.12) 1px,
+          transparent 1px);
+      background-size:
+        100% 100%,
+        40px 40px,
+        40px 40px;
+      mix-blend-mode: soft-light;
+      opacity: 0.9;
+      z-index: -1;
+    }
+    @keyframes heroGlow {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(-4%, -2%, 0) scale(1.08);
+      }
+      100% {
+        transform: translate3d(3%, 4%, 0) scale(1.05);
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 0.7rem;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .hero-title span {
+      color: #38bdf8;
+    }
+    .hero-text {
+      font-size: 0.98rem;
+      color: #d1d5db;
+      max-width: 36rem;
+      margin-bottom: 0.8rem;
+    }
+    .hero-sub {
+      font-size: 0.88rem;
+      color: #9ca3af;
+      margin-bottom: 1.3rem;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+    .tag {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.75rem;
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.7);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .btn-primary, .btn-outline {
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #0ea5e9);
+      color: #020617;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: #64748b;
+    }
+    .hero-email {
+      font-size: 0.85rem;
+      color: #d1d5db;
+      margin-top: 0.3rem;
+    }
+
+    /* HERO CARD – about.jpg portré + infó */
+    .hero-card {
+      border-radius: 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.5rem 1.35rem;
+      background: radial-gradient(circle at top, rgba(15,23,42,0.2), rgba(15,23,42,0.96));
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      text-align: left;
+    }
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .hero-card-photo {
+      width: 68px;
+      height: 68px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(148,163,184,0.9);
+      background: #020617;
+    }
+    .hero-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .hero-card-sub {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    .hero-card-divider {
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      margin: 0.6rem 0 0.8rem;
+    }
+    .hero-card-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.82rem;
+      color: #e5e7eb;
+    }
+    .hero-card-list li {
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+    .hero-card-bullet {
+      margin-top: 0.28rem;
+      font-size: 0.6rem;
+      color: #38bdf8;
+    }
+
+    /* GRID LAYOUTS */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+    .card {
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.2rem 1.3rem;
+      background: rgba(15, 23, 42, 0.9);
+    }
+    .card h3, .card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .muted {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #a5b4fc;
+      margin-bottom: 0.35rem;
+    }
+    .project-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      border-left: 1px solid rgba(148, 163, 184, 0.4);
+      margin-left: 0.5rem;
+      padding-left: 1.25rem;
+    }
+    .timeline-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.1rem;
+      top: 0.25rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+    .timeline-date {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-bottom: 0.15rem;
+    }
+    .timeline-role {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .timeline-org {
+      font-size: 0.85rem;
+      color: #e5e7eb;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+    }
+    .skill-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.2rem 0.6rem;
+      color: #cbd5f5;
+    }
+
+    .link-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+    .link-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 840px) {
+      .hero-grid, .two-col { grid-template-columns: 1fr; }
+      .hero { padding-top: 2.3rem; padding-bottom: 2.8rem; }
+      .nav-links { display: none; }
+      section { padding: 60px 0; }
+      .hero-card {
+        margin-top: 1.4rem;
+      }
+      .nav {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
-        <div class="container">
-            <a class="navbar-brand" href="#">Big G</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" colour="0000FF">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#home">Kezdőlap</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Rólam</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Szolgáltatások</a>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Szolgáltatások</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="website-development.html">Weboldalfejlesztés</a></li>
-                            <li><a class="dropdown-item" href="website-design.html">Weboldal tervezés</a></li>
-                            <li><a class="dropdown-item" href="website-deployment.html">Weboldal telepítése</a></li>
-                            <li><a class="dropdown-item" href="seo.html">SEO</a></li>
-                            <li><a class="dropdown-item" href="devops.html">DevOps</a></li>
-                            <li><a class="dropdown-item" href="qa.html">QA</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">                  
-                        <a class="nav-link" href="#portfolio">Referenciák</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kapcsolat</a>
-                    </li>
-                </ul>
-                
-            </div>
-        </div>
+
+<header>
+  <div class="nav container">
+    <div class="nav-left">
+      <img src="logo.jpg" alt="Logó" class="nav-logo">
+      <span>Gulyás Gábor</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#about">Rólam</a>
+      <a href="#projects">Projektek</a>
+      <a href="#experience">Tapasztalat</a>
+      <a href="#documents">Dokumentumok</a>
+      <a href="#contact">Kapcsolat</a>
     </nav>
-    
-    <!-- main banner -->
+  </div>
+</header>
 
-    <section class="bgimage" id="home">
-        <div class="container-fluid">
-            <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-                <h2 class="hero_title">Helló, én Gábor vagyok</h2>
-                <p class="hero_desc">Felhő Alapú Mérnökinformatikus Londonból.
-Fedezzük fel együtt a felhőtechnológia jövőjét.</p>
-            </div>
-            </div>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-kicker">MBA · Felhő alapú informatika · Nearshore IT</div>
+      <h1 class="hero-title">
+        Gulyás <span>Gábor</span> – köztisztviselő és technológiában jártas üzleti szakember.
+      </h1>
+      <p class="hero-text">
+        MBA in International Business végzettséget szereztem (kitüntetéssel), valamint First Class
+        besorolású BSc Cloud Computing diplomával rendelkezem. Több mint 20 éves szakmai
+        tapasztalatom nagy része a brit közszférához kötődik, ahol közösségi projekteken,
+        operatív működésen, munkavédelmen és gyakorlati IT-támogatáson dolgozom.
+      </p>
+      <p class="hero-sub">
+        Kutatási érdeklődésem középpontjában a nearshore IT támogatás, a közszféra működése,
+        a digitális transzformáció, a munkavédelem, valamint a társadalmi célú technológiák
+        állnak – például egy nők elleni erőszak megelőzését segítő mobilalkalmazás koncepciója.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">MBA – International Business (kitüntetés)</span>
+        <span class="tag">BSc Cloud Computing – First Class</span>
+        <span class="tag">Közszféra</span>
+        <span class="tag">Nearshore IT</span>
+        <span class="tag">Digitális transzformáció</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">Projektek megtekintése</a>
+        <a href="#documents" class="btn-outline">Dokumentumok megnyitása</a>
+      </div>
+
+      <div class="hero-email">
+        E-mail:
+        <a href="mailto:info@gulyasgabor.com">info@gulyasgabor.com</a> ·
+        <a href="mailto:info@gulyasgabor.hu">info@gulyasgabor.hu</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="hero-card-header">
+        <img src="about.jpg" alt="Gulyás Gábor portré" class="hero-card-photo">
+        <div>
+          <div class="hero-card-title">Szakmai és kutatási profil</div>
+          <div class="hero-card-sub">London · Közszféra · IT &amp; üzlet</div>
         </div>
-    </section>
+      </div>
+      <div class="hero-card-divider"></div>
+      <ul class="hero-card-list">
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>MBA in International Business (kitüntetéssel) és BSc Cloud Computing (First Class) végzettségek.</span>
+        </li>
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>Fókuszban a közösségi projektek, a munkavédelem, az operatív működés és a gyakorlati digitális eszközök.</span>
+        </li>
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>Akadémiai munka nearshore IT támogatási modellekről brit szervezetek számára, valamint egy VAW (Violence Against Women) megelőző mobilapp koncepciójáról.</span>
+        </li>
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>Hosszabb távon doktori szintű tanulmányokban gondolkodom, gyakorlati, alkalmazott üzleti és technológiai fókuszsal.</span>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</section>
 
-    <!-- about section-->
-    <section id="about">
-        <div class="container mt-4 pt-4">
-            <h1 class="text-center">Rólam</h1>
-            <div class="row mt-4">
-                <div class="col-lg-4">
-                  <br>
-                  <br>
-                  <br>
-                    <img class="imageAboutPage" src="about.jpg">
-                </div>
-              <br>
-     
-                <div class="col-lg-8">
-                    <p> Tapasztalt közalkalmazottként a pártfogó felügyelői szolgálatban finomítottam szaktudásomat, aktívan hozzájárulva közösségi megtérülési és rehabilitációs projektekhez. A hangsúlyt a dinamikus termelékenységre és oktatásra, az elsősegélynyújtást is magában foglaló adminisztrációra, valamint az egészségre és biztonságra helyeztem. A különböző csapatok vezetése a közösségi és szociális szolgáltatások terén felbecsülhetetlen értékű vezetői és interperszonális készségekkel ruházott fel, amelyek elengedhetetlenek az összetett környezetekben való navigáláshoz.
+<!-- ABOUT -->
+<section id="about">
+  <div class="container two-col">
+    <div>
+      <div class="section-subtitle">Rólam</div>
+      <h2>Ki vagyok?</h2>
+      <p style="margin-bottom: 1rem;">
+        Londonban élek és dolgozom köztisztviselőként, több mint 20 éves szakmai tapasztalattal.
+        Munkám nagy része a közszférához kapcsolódik: közösségi projektek szervezése, munkavédelem,
+        logisztika, operatív támogatás és egyszerű, működő IT-megoldások bevezetése a mindennapi
+        munkába. Szeretem a valós problémákat gyakorlatias módon megoldani, támogatni a csapatokat,
+        és átláthatóbbá, biztonságosabbá tenni a folyamatokat.
+      </p>
+      <p style="margin-bottom: 1rem;">
+        A University of Wales Trinity Saint David londoni campusán szereztem meg az
+        <strong>MBA in International Business</strong> diplomámat (kitüntetéses minősítéssel),
+        valamint a <strong>BSc Cloud Computing</strong> (First Class) végzettségemet. Az MBA
+        disszertációmban a nearshore IT támogatás lehetőségeit vizsgáltam brit kis- és
+        középvállalkozások számára, míg korábbi BSc munkámban egy nők elleni erőszakot
+        megelőző mobilalkalmazás koncepcióját dolgoztam ki, disszertáció, viva és poszter formájában.
+      </p>
+      <p>
+        Jelenlegi szakmai fókuszom a <strong>üzletmenedzsment, közszféra működés, digitális
+        eszközök és munkavédelem</strong> metszetében van. Érdekel, hogyan lehet ezeket a
+        területeket lépésről lépésre, adatvezérelt módon és reflexióval fejleszteni. A
+        jövőben szeretném ezt a tudást doktori szinten tovább építeni.
+      </p>
+    </div>
 
-Az UWTSD Londontól első osztályú kitüntetéssel szerzett tudományos alapdiplomát felhőalapú számítástechnikában, ami alátámasztja a technológia élvonalában való tartásomat. Jelenleg a digitális kiberbiztonság és törvényszéki MSc szakon szerzett posztgraduális diploma megszerzésével bővítem szakértelmemet, ami tovább erősíti elkötelezettségemet a terület legújabb fejlesztéseinek elsajátítása iránt.
+    <div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Alapadatok</h3>
+        <p class="muted">
+          • Név: Gulyás Gábor<br>
+          • Helyszín: London, Egyesült Királyság<br>
+          • Jelenlegi pozíció: köztisztviselő (közösségi projektek &amp; operatív támogatás)<br>
+          • Tapasztalat: 20+ év<br>
+          • Nyelvek: magyar (anyanyelvi), angol (jó), alap szintű német és horvát<br>
+          • BCS (British Computer Society) regisztrált tag
+        </p>
+      </div>
+      <div class="card">
+        <h3>Tanulmányok és képesítések</h3>
+        <p class="muted">
+          • MBA International Business – kitüntetéses minősítés (UWTSD London)<br>
+          • BSc Cloud Computing – First Class (UWTSD London)<br>
+          • Mentőtiszt, NVQ L4 – Pécs, Magyarország<br>
+          • ECDL számítástechnikai végzettség, NVQ L4<br>
+          • Érettségi: közgazdaságtan és mezőgazdaság<br>
+          • IOSH Managing Safely (munkavédelem és kockázatkezelés)
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-Alkalmazkodóképességem, gyors tanulási képességem és a változatos környezetekben való boldogulásom hírneve jól megalapozott. A kihívásokat a növekedés lehetőségének tekintem, és következetesen olyan eredményeket érek el, amelyek felülmúlják az elvárásokat. Most készen állok arra, hogy elemző képességemet és problémamegoldó készségemet az adatmérnökség dinamikus területén kamatoztassam.
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-subtitle">Projektek</div>
+    <h2>Válogatott projektek és esettanulmányok</h2>
+    <p class="muted" style="max-width: 650px; margin-bottom: 1.8rem;">
+      Néhány példa olyan munkákra – akadémiai és gyakorlati projektekre –, ahol az üzleti
+      gondolkodást, az informatikai tudást és a közszféra tapasztalatait kombináltam.
+      A részletes dokumentumok a „Dokumentumok &amp; letöltések” szekcióban érhetők el.
+    </p>
 
-Szívesen hozzájárulok innovatív projektekhez és megoldásokhoz, célom a technológiai lehetőségek határainak feszegetése. A kiválóság iránti szenvedély és a jelentős hatás elérésére törekvő törekvés miatt izgatott vagyok, hogy nekivághatok ennek az adatmérnöki útnak, készen állva megbirkózni az előttem álló kihívásokkal és lehetőségekkel. </p>
-                  <div class="row mt-3">
-                    <div class="col-md-6">
-                            <ul>
-                                <li>Név: Gulyás Gábor </li>
-                                <li>Életkor: 42</li>
-                                <li>Londonban élek (UK)</li>
-
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul>
-                                <li>Foglalkozás: Közalkalmazott </li>
-                                <li>Tőbb mint 20 éves munkatapasztalat </li>
-                                <li>Magyar/Angol nyelven</li>
-
-                            </ul>
-                          </div>
-                        
-                    </div>
-                    <div class="row mt-3">
-                        <p> 
-                          <h3>Iskolák és végzetségek:</h3><br>
-<li>BSc Cloud Computing, University of Wales Trinity Saint David, London UK (2021.Jun – 2024.Jun) Dícsérettel, kíváló </li>
-<li>Mentő ápoló, Pécsi Egészségügyi Szakiskola, Pécs (2004.Szept - 2006.Jun) Elmélet jo és Gyakorlati kíváló </li>
-<li>ECDL Software kezelői, Újhelyi Imre Kg-i. és Mg-i. Szkp. Szentlőrinc (2000.Szep - 2001.Jun) íváló </li>
-<li>Érettségi, Újhelyi Imre Kg-i. és Mg-i. Szkp. Szentlőrinc (2000.Jun) Megfelelt </li>
-                        </p>
-                    </div>
-                </div>
-            </div>
-    </section>
-
-   <!-- services section-->
-    <section id="services">
-        <div class="container mt-4">
-            <h1 class="text-center">Szolgáltatások</h1>
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                          <i class="fas servicesIcon fa-clock"></i>
-                            <h4 class="card-title mt-3"> Weboldalfejlesztés </h4>
-                            <p class="card-text">Szabadítsd fel online potenciálodat szakértői Weboldalfejlesztési szolgáltatásommal. Az elegáns dizájntól a zökkenőmentes működésig egyedi weboldalakat készítek, amelyek igazodnak az egyedi igényeidhez. Legyél akár startup, kisvállalkozás vagy nagyvállalat, életre keltem elképzeléseidet, erősítve online jelenlétedet és elősegítve a sikert a digitális világban. </p>
-                        </div>
-                    </div>  
-                </div>
-              
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class='fas servicesIcon fa-layer-group'></i>
-                            <h4 class="card-title mt-3"> Weboldal tervezés </h4>
-                            <p class="card-text">Alakítsd át digitális jelenlétedet lenyűgöző élménnyé egyedi weboldal-tervezési szolgáltatásommal. Az elegáns és reszponzív elrendezésektől az intuitív navigációig olyan weboldalakat készítek, amelyek megragadják közönséged figyelmét és eredményeket hoznak. Emeld online jelenlétedet a személyre szabott dizájnokkal, amelyek az esztétikát és a funkcionalitást egyaránt optimalizálják.</p>
-                        </div>
-                    </div>  
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class='far servicesIcon fa-check-circle'></i>
-                            <h4 class="card-title mt-3"> Weboldal telepítése </h4>
-                            <p class="card-text">Szeretnéd, hogy weboldalad élővé váljon? Ne keress tovább! Weboldal Telepítési szolgáltatásom zökkenőmentes, problémamentes átmenetet biztosít a fejlesztéstől a webre. Mindent kezelek a szerver beállításától a domain konfigurálásáig, biztosítva, hogy oldalad zökkenőmentesen elinduljon. Hagyd rám a technikai részleteket, hogy te az online jelenléted növelésére koncentrálhass. </p>
-                        </div>
-                    </div>  
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class='fas servicesIcon fa-search'></i>
-                            <h4 class="card-title mt-3">SEO</h4>
-                            <p class="card-text">Szabadítsd fel weboldalad potenciálját elsőrangú SEO szolgáltatásommal. Fokozom online jelenléted, növelem a láthatóságot és célzott forgalmat irányítok az oldaladra, biztosítva, hogy kiemelkedj a keresőmotorok találatai között. Optimalizálom a tartalmadat, javítom a kulcsszavakat és stratégiai taktikákat alkalmazok a digitális sikered maximalizálása érdekében.</p>
-                        </div>
-                    </div>  
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class='fas servicesIcon fa-shield-alt'></i>
-                            <h4 class="card-title mt-3">DevOps</h4>
-                            <p class="card-text">Egyszerűsítsd a szoftverfejlesztési életciklusodat DevOps szolgáltatásaimmal. A folyamatos integrációtól és telepítéstől az automatizált tesztelésig és monitoringig optimalizálom a folyamataidat a hatékonyság, együttműködés és gyors szállítás érdekében. Engedd, hogy az innovációra koncentrálj, miközben biztosítom a megbízhatóságot és a skálázhatóságot az infrastruktúrádon.</p>
-                        </div>
-                    </div>  
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class='fas servicesIcon fa-wrench'></i>
-                            <h4 class="card-title mt-3">QA</h4>
-                            <p class="card-text">Kiemelkedő minőségű minőségbiztosítási (QA) szolgáltatásokat kínálok, alaposan értékelem a szoftvereket és alkalmazásokat, hogy biztosítsam a legmagasabb szintű funkcionalitást, megbízhatóságot és felhasználói elégedettséget. Szigorú tesztelési módszereket alkalmazok, és garantálom a zökkenőmentes teljesítményt és optimális felhasználói élményt, segítve a vállalkozásokat abban, hogy hibátlan termékeket szállítsanak ügyfeleiknek.</p>
-                        </div>
-                    </div>  
-                </div>
-            </div>
+    <div class="projects-grid">
+      <article class="card">
+        <div class="project-badge">MBA disszertáció</div>
+        <div class="project-title">Nearshore IT támogatás brit szervezetek számára</div>
+        <p class="muted">
+          Üzletfejlesztési tanulmány arról, hogyan profitálhatnak a brit kis- és
+          középvállalkozások a Közép- és Kelet-Európában – különösen Magyarországon –
+          működő nearshore IT csapatokból. A munka a szolgáltatási szintekre,
+          kommunikációra, kultúrára és kockázatokra fókuszál, gyakorlati szemlélettel.
+        </p>
+        <div class="project-tags">
+          <span>#InternationalBusiness</span>
+          <span>#NearshoreIT</span>
+          <span>#KKV</span>
         </div>
-    </section>
+      </article>
 
- <!-- portfolio section  -->
-    <section id="portfolio">
-        <div class="container mt-4">
-            <h1 class="text-center">Portfolió</h1>
-            <div class="row">   
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <img class="card-img-top" src="portfolioImage_10.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Android Studio</h4>
-                            <p class="card-text">Tapasztaltan készített Android Studio-ban, életemre keltettem a saját, személyre szabott APK-mat. Ez a projekt az innováció iránti elkötelezettségemet és a mobilfejlesztés művészetének elsajátítását jelképezi. A koncepciótól a megvalósításig minden kód sor mesél a kreativitásról és eltökéltségről. Fedezd fel utamat a technológia világában, és láss hatalmat alkotásaimban. </p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">https://robag23.github.io/Android-Studio/</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="portfolioImage4.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                          <br>
-                            <h4 class="card-title">Python</h4>
-                            <p class="card-text">Fedezd fel projekteimet, hozzájárulásaimat és utamat a kódolás világában. Az innovatív megoldásoktól a közösségi törekvésekig merülj bele repozitóriumomba, és fedezd fel azt a kódot, amely táplálja szenvedélyemet a technológia iránt.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">https://robag23.github.io/GGG/</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-  
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="portfolioImage0.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title"> Web Develop</h4>
-                            <p class="card-text">Mélyedj el a Modul Mestereiben: ahol minden összetevő aprólékosan kidolgozott, képviselve a szakértelem és innováció útját. Fedezd fel a moduláris tanulás erejét, ahol minden elem egy elkötelezettség és kreativitás történetét meséli el.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">https://robag23.github.io/myportfolio/</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-     <!-- portfolio section
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage4.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Messaging Service</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage1.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Twitter Clone</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage4.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Blog App</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
--->
-    <!-- contact section-->
-    <section id="contact">
-        <div class="container mt-3 contactContent">
-            <h1 class="text-center">Kapcsolat</h1>
-
-            <div class="row mt-4">
-                <div class="col-lg-6">
-                    <!-- to edit google map goto https://www.embed-map.com type your location, generate html code and copy the html  -->
-                    <div style="max-width:100%;overflow:hidden;color:red;width:500px;height:500px;">
-                        <div id="embedmap-canvas" style="height:100%; width:100%;max-width:100%;">
-                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Lonon+&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
-                            </iframe>
-                        </div>
-                        <a class="googlemaps-html" href="https://www.embed-map.com" id="get-data-forembedmap">https://www.embed-map.com</a>
-                        <style>#embedmap-canvas img{max-width:none!important;background:none!important;font-size: inherit;font-weight:inherit;}
-                        </style>
-                    </div>
-                </div>
-<br>
-    <br>          
-                <div class="col-lg-6">
-                  <!-- form fields -->
-                    <form action="https://formspree.io/f/mwkgzlke" method="POST">
-                        <input type="text" class="form-control form-control-lg" name="name" placeholder="Név">
-                        <input type="email" class="form-control mt-3" name="_replyto" placeholder="Email cím">
-                        <input type="text" class="form-control mt-3" name="_subject" placeholder="Tárgy">
-                        <div class="mb-3 mt-3">
-                          <textarea class="form-control" rows="5" id="comment" name="message" placeholder="Leírás"></textarea>
-                        </div>
-                      <button type="submit" class="btn btn-success mt-3">Üzenet küldése!</button>
-                    </form>
-</div>
-              
-                </div>
-            </div>
+      <article class="card">
+        <div class="project-badge">BSc kutatás</div>
+        <div class="project-title">VAW (nők elleni erőszak) megelőző mobilapp</div>
+        <p class="muted">
+          Mobilalkalmazás koncepció, amely a nők elleni erőszak kockázatának kitett személyek
+          támogatását célozza. Fókuszban a könnyen elérhető információ, a vészhelyzeti
+          útvonalak és az adatvédelem. A téma disszertációban, viva prezentációban és
+          kutatási poszterben is feldolgozásra került.
+        </p>
+        <div class="project-tags">
+          <span>#SocialImpact</span>
+          <span>#MobileApp</span>
+          <span>#UX</span>
         </div>
-    </section>
-    <!-- footer section-->
-    <footer id="footer">
-        <div class="container-fluid">
-            <!-- social media icons -->
-            <div class="social-icons mt-4">
-                <a href="whatsapp://send?phone=+447455444965&text=Hello,%20I%20would%20like%20to%20connect%20with%20you" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.facebook.com/gabor.gulyas1" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/gabor-gulyas-bigg/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:info@gaborgulyas.tech" target="_blank"><i class="fa fa-envelope"></i></a>
-            </div>
-                <p>&copy; 2024 Big G. Minden jog fenntartva.</p>   
+      </article>
+
+      <article class="card">
+        <div class="project-badge">Felhő projekt</div>
+        <div class="project-title">Cloud Computing a gyakorlatban</div>
+        <p class="muted">
+          Olyan alapszintű, mégis gyakorlati szemléletű munka, amely azt vizsgálja,
+          hogyan tudnak szervezetek biztonságosan és hatékonyan felhőszolgáltatásokra
+          áttérni. Külön figyelmet kapott a biztonság, a skálázhatóság, a
+          megbízhatóság, és egy példa migrációs terv is készült.
+        </p>
+        <div class="project-tags">
+          <span>#Cloud</span>
+          <span>#Biztonság</span>
+          <span>#Architektúra</span>
         </div>
-    </footer>
-          
-    <!-- load javascript after loading all html content -->
-    <script src="script/script.js" text-align: center></script>
+      </article>
+
+      <article class="card">
+        <div class="project-badge">Üzleti koncepció</div>
+        <div class="project-title">HungaTech – nearshore IT támogatási ötlet</div>
+        <p class="muted">
+          Márkanév és működési modell koncepciója 1–3. szintű IT-támogatásra, amelyet
+          Magyarországról lehetne nyújtani brit ügyfelek felé. A projekt piackutatást,
+          szolgáltatástervezést és pénzügyi vázlatot is tartalmazott.
+        </p>
+        <div class="project-tags">
+          <span>#Vállalkozás</span>
+          <span>#ITSupport</span>
+          <span>#Szolgáltatástervezés</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="project-badge">Digitális marketing</div>
+        <div class="project-title">Sziget-Baracsi Ingatlan márkaépítés</div>
+        <p class="muted">
+          Kis ingatlanos márka felépítése online hirdetésekkel, vizuális anyagokkal
+          és ingatlanleírásokkal Magyarországon. A cél a világos kommunikáció és az
+          egyszerű, könnyen kezelhető digitális eszközök használata volt.
+        </p>
+        <div class="project-tags">
+          <span>#Branding</span>
+          <span>#Ingatlan</span>
+          <span>#DigitálisMarketing</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container two-col">
+    <div>
+      <div class="section-subtitle">Tapasztalat</div>
+      <h2>Munkatapasztalat</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Jelenleg</div>
+          <div class="timeline-role">Placement Coordinator / közösségi projektek</div>
+          <div class="timeline-org">Probation Service · London (UK)</div>
+          <p class="muted">
+            Közösségi munkaprojektek koordinálása, logisztika, védőfelszerelések és
+            munkavédelmi szempontok kezelése, valamint a felügyelők támogatása egyszerű,
+            használható adminisztratív és IT-megoldásokkal.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Korábban</div>
+          <div class="timeline-role">Community Payback Supervisor &amp; csapatvezetés</div>
+          <div class="timeline-org">Brit közszféra</div>
+          <p class="muted">
+            Helyszíni csapatok vezetése, együttműködés fogadó intézményekkel és
+            önkormányzatokkal, a projektek biztonságos és előírásoknak megfelelő
+            végrehajtásának biztosítása.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-subtitle">Kompetenciák</div>
+      <h2>Készségek összefoglalva</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Üzlet és menedzsment</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Projektkoordináció</span>
+            <span class="skill-chip">Érintetti kommunikáció</span>
+            <span class="skill-chip">Csapatvezetés</span>
+            <span class="skill-chip">Operatív tervezés</span>
+            <span class="skill-chip">Folyamatfejlesztés</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Technológia és adatok</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Felhő alapú informatika – alap szint</span>
+            <span class="skill-chip">IT támogatási alapfogalmak</span>
+            <span class="skill-chip">Python &amp; szkriptelés (egyetemi szint)</span>
+            <span class="skill-chip">SQL &amp; adatkezelés</span>
+            <span class="skill-chip">Digitális eszközök &amp; kimutatások</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Soft skillek</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Nyugodt hozzáállás stresszhelyzetben</span>
+            <span class="skill-chip">Multikulturális csapatmunka</span>
+            <span class="skill-chip">Ügyfél- és felhasználóközpontúság</span>
+            <span class="skill-chip">Gyakorlati problémamegoldás</span>
+            <span class="skill-chip">Reflektív tanulás</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS & DOWNLOADS -->
+<section id="documents">
+  <div class="container two-col">
+    <div>
+      <div class="section-subtitle">Dokumentumok</div>
+      <h2>Akadémiai munkák &amp; letöltések</h2>
+      <p class="muted">
+        Az alábbi linkeken elérhetők a főbb disszertációim és kutatási anyagaim. A fájlnevek
+        a szerveren igény szerint módosíthatók, a szerkezet csak egy egyszerű, áttekinthető
+        példa.
+      </p>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>MBA disszertáció – Nearshore IT támogatás</h3>
+        <ul class="link-list">
+          <li>
+            📄 <a href="mba_dissertation.pdf" target="_blank">MBA disszertáció (PDF)</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>BSc kutatás – VAW megelőző mobilapp</h3>
+        <ul class="link-list">
+          <li>📄 <a href="bsc_dissertation.pdf" target="_blank">Teljes BSc disszertáció (PDF)</a></li>
+          <li>📊 <a href="bsc_viva_presentation.pdf" target="_blank">Végső viva prezentáció (PowerPoint/PDF)</a></li>
+          <li>🖼️ <a href="bsc_poster.pdf" target="_blank">Kutatási poszter (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-subtitle">Online jelenlét</div>
+      <h2>Portfólió &amp; szakmai profilok</h2>
+      <div class="card">
+        <h3>Weboldalak és szakmai oldalak</h3>
+        <ul class="link-list">
+          <li>🌐 Portfólió (angol): <a href="https://gulyasgabor.com" target="_blank">gulyasgabor.com</a></li>
+          <li>🌐 Portfólió (magyar): <a href="https://gulyasgabor.hu" target="_blank">gulyasgabor.hu</a></li>
+          <li>💼 LinkedIn: <a href="https://www.linkedin.com/in/gabor-gulyas-bigg/" target="_blank">linkedin.com/in/gabor-gulyas-bigg</a></li>
+          <li>💻 GitHub: <a href="https://github.com/robag23" target="_blank">github.com/robag23</a></li>
+          <li>🛡️ HackTheBox: <span style="font-size:0.9rem;">felhasználó: robag23</span></li>
+          <li>📚 HyperionDev portfólió: <span style="font-size:0.9rem;">portfolio/GG23110011796</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact-box">
+    <div class="section-subtitle">Kapcsolat</div>
+    <h2>Lépjünk kapcsolatba</h2>
+    <p class="muted">
+      Ha szívesen beszélgetnél nearshore IT ötletekről, digitális működésről, közszféra
+      projektekről vagy jövőbeli tanulmányi/kutatási lehetőségekről, bátran írj nekem.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:info@gulyasgabor.com">info@gulyasgabor.com</a>
+      <a href="mailto:info@gulyasgabor.hu">info@gulyasgabor.hu</a>
+      <a href="https://wa.me/447455444965" target="_blank">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/gabor-gulyas-bigg/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © <span id="year"></span> Gulyás Gábor. Minden jog fenntartva.
+</footer>
+
+<script>
+  // dinamikus év
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
-
 </html>
