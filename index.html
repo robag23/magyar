@@ -481,9 +481,43 @@
         gap: 0.3rem;
         font-size: 0.8rem;
       }
+      /* Hamburger alapból rejtve */
+.nav-toggle {
+  display: none;
+}
+
+/* Mobil nézet */
+@media (max-width: 640px) {
+  .nav-toggle {
+    display: block;
+    background: transparent;
+    border: 1px solid rgba(148,163,184,0.5);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    color: #e5e7eb;
+    cursor: pointer;
+  }
+
+  /* Menü alapból elrejtve mobilon */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0.7rem;
+    text-align: center;
+    width: 100%;
+    padding-top: 0.6rem;
+  }
+
+  /* Menü látható, ha toggle osztály aktív */
+  .nav-links.open {
+    display: flex;
+  }
+}
+
     }
 .nav-links a {
-  color: #7dd3fc;       /* világoskék */
+  color: #60a5fa;       /* világoskék */
   border-bottom: 1px solid transparent;
 }
 
@@ -505,6 +539,8 @@
       <img src="logo.jpg" alt="Logó" class="nav-logo">
       <span>Gulyás Gábor</span>
     </div>
+    
+<button class="nav-toggle" onclick="toggleMenu()">☰</button>
 
     <nav class="nav-links">
       <a href="#about">Rólam</a>
@@ -1008,10 +1044,17 @@
     }
   }
 </script>
+  <script>
+function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('open');
+}
+</script>
+
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
+
 
 
 
