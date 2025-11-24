@@ -235,6 +235,7 @@ section {
 #contact {
   padding-bottom: 4rem;
 }
+
 html, body {
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
@@ -244,6 +245,7 @@ html, body {
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
 }
+
 @media (max-width: 576px) {
   .hero_title {
     font-size: 1.2rem !important;
@@ -254,3 +256,25 @@ html, body {
   }
 }
 
+/* ===== Navigation fix for mobile ===== */
+/* Ha Bootstrap navbar-t használsz (navbar, navbar-nav, navbar-collapse stb.),
+   ez a blokk megakadályozza, hogy mobilon eltűnjön a menü a hamburger mögé. */
+
+@media (max-width: 991.98px) {
+  /* Mindig legyen látható a menü (ne csukódjon össze) */
+  .navbar-collapse {
+    display: block !important;
+  }
+
+  /* A menüpontok törjenek több sorba, legyenek középen */
+  .navbar-nav {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  /* A hamburger gombot elrejthetjük, ha nincs rá szükség */
+  .navbar-toggler {
+    display: none !important;
+  }
+}
