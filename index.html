@@ -526,6 +526,53 @@
 }
 
     }
+    /* Hamburger desktopon NE látszódjon */
+.nav-toggle {
+  display: none;
+}
+
+/* Mobil nézetben jelenjen meg (jobb oldalon) */
+@media (max-width: 640px) {
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+    background: transparent;
+    border: 1px solid rgba(148,163,184,0.5);
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    color: #e5e7eb;
+    cursor: pointer;
+  }
+
+  /* Menü alapból rejtve mobilon */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0.7rem;
+    text-align: center;
+    width: 100%;
+    padding-top: 0.6rem;
+  }
+
+  /* Menü látható, ha open class */
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Nyelvváltó mobilon külön sorban */
+  .lang-switch {
+    margin-top: 0.8rem;
+    justify-content: center;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -1067,6 +1114,7 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
 
 
