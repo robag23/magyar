@@ -42,7 +42,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* HEADER + NAV */
+    /* ===== HEADER + NAV ===== */
     header {
       position: sticky;
       top: 0;
@@ -51,6 +51,7 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
+
     .nav {
       display: flex;
       align-items: center;
@@ -58,15 +59,22 @@
       padding: 0.6rem 1.5rem;
       gap: 1rem;
     }
+
+    /* felső sor: logo + név/e-portfólió + hamburger */
+    .nav-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
     .nav-left {
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      font-weight: 700;
-      font-size: 0.95rem;
       color: #e5e7eb;
       white-space: nowrap;
     }
+
     .nav-logo {
       width: 32px;
       height: 32px;
@@ -75,6 +83,40 @@
       border: 1px solid rgba(148, 163, 184, 0.6);
       background: #020617;
     }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .nav-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .nav-name span {
+      color: #38bdf8; /* a span-be tett rész kéken */
+    }
+
+    .nav-subtitle {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+    }
+
+    /* hamburger: desktopon elrejtve */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(148,163,184,0.7);
+      border-radius: 999px;
+      padding: 0.25rem 0.6rem;
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
     .nav-links {
       display: flex;
       gap: 1.2rem;
@@ -82,13 +124,16 @@
       flex-wrap: wrap;
       justify-content: center;
     }
+
     .nav-links a {
       color: #e5e7eb;
-      padding-bottom: 2px;
-      border-bottom: 1px solid transparent;
+      padding: 0.1rem 0;
+      transition: color 0.2s ease;
+      border-bottom: none;
     }
+
     .nav-links a:hover {
-      border-color: #38bdf8;
+      color: #38bdf8;  /* nem vonal, hanem színcsere hoverre */
     }
 
     /* LANGUAGE SWITCH */
@@ -112,7 +157,7 @@
       border-color: #38bdf8;
     }
 
-    /* HERO – dinamikus tech háttér */
+    /* ===== HERO – dinamikus tech háttér ===== */
     .hero {
       position: relative;
       min-height: 80vh;
@@ -432,7 +477,7 @@
       color: #6b7280;
     }
 
-    /* RESPONSIVE */
+    /* ===== RESPONSIVE ÁLTALÁNOS ===== */
     @media (max-width: 840px) {
       .hero-grid, .two-col { grid-template-columns: 1fr; }
       .hero { padding-top: 2.3rem; padding-bottom: 2.8rem; }
@@ -443,136 +488,63 @@
       .nav {
         padding-inline: 1rem;
       }
-          /* MOBIL FEJLÉC IGAZÍTÁS – max 640px */
+    }
+
+    /* ===== MOBIL NAV (max-width: 640px) ===== */
     @media (max-width: 640px) {
-      /* a header belső konténere egymás alatt legyen */
-      header .nav {
+
+      .nav {
         flex-direction: column;
-        align-items: center;
-        gap: 0.35rem;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        align-items: stretch;
+        padding: 0.5rem 1rem;
+        gap: 0.4rem;
       }
 
-      /* logó + név középre */
+      .nav-row {
+        width: 100%;
+        justify-content: space-between;
+      }
+
       .nav-left {
-        width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
-      /* menüpontok több sorban, középen */
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        row-gap: 0.25rem;
-        column-gap: 0.8rem;
+      .nav-title {
+        flex: 1;
         text-align: center;
       }
 
-      .nav-links a {
-        font-size: 0.9rem;
+      .nav-toggle {
+        display: block;
+        background: transparent;
+        border: 1px solid rgba(148,163,184,0.5);
+        padding: 0.35rem 0.65rem;
+        border-radius: 6px;
+        font-size: 1.4rem;
+        color: #e5e7eb;
+        cursor: pointer;
       }
 
-      /* nyelvváltó külön sorban, középen */
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 0.65rem;
+        margin-top: 0.4rem;
+        padding-top: 0.3rem;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+
       .lang-switch {
         width: 100%;
         justify-content: center;
-        gap: 0.3rem;
-        font-size: 0.8rem;
+        margin-top: 0.2rem;
+        padding-bottom: 0.2rem;
       }
-      /* Hamburger alapból rejtve */
-.nav-toggle {
-  display: none;
-}
-
-/* Mobil nézet */
-@media (max-width: 640px) {
-  .nav-toggle {
-    display: block;
-    background: transparent;
-    border: 1px solid rgba(148,163,184,0.5);
-    padding: 0.3rem 0.6rem;
-    border-radius: 6px;
-    font-size: 1.2rem;
-    color: #e5e7eb;
-    cursor: pointer;
-  }
-
-  /* Menü alapból elrejtve mobilon */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 0.7rem;
-    text-align: center;
-    width: 100%;
-    padding-top: 0.6rem;
-  }
-
-  /* Menü látható, ha toggle osztály aktív */
-  .nav-links.open {
-    display: flex;
-  }
-}
-
     }
-.nav-links a {
-  color: #60a5fa;       /* világoskék */
-  border-bottom: 1px solid transparent;
-}
-
-.nav-links a:hover {
-  border-color: #38bdf8; /* hover kiemelés */
-}
-
-    }
-    /* Hamburger desktopon NE látszódjon */
-.nav-toggle {
-  display: none;
-}
-
-/* Mobil nézetben jelenjen meg (jobb oldalon) */
-@media (max-width: 640px) {
-
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-toggle {
-    display: block;
-    background: transparent;
-    border: 1px solid rgba(148,163,184,0.5);
-    padding: 0.35rem 0.65rem;
-    border-radius: 6px;
-    font-size: 1.4rem;
-    color: #e5e7eb;
-    cursor: pointer;
-  }
-
-  /* Menü alapból rejtve mobilon */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 0.7rem;
-    text-align: center;
-    width: 100%;
-    padding-top: 0.6rem;
-  }
-
-  /* Menü látható, ha open class */
-  .nav-links.open {
-    display: flex;
-  }
-
-  /* Nyelvváltó mobilon külön sorban */
-  .lang-switch {
-    margin-top: 0.8rem;
-    justify-content: center;
-  }
-}
-
   </style>
 </head>
 <body>
@@ -582,26 +554,23 @@
 
 <header>
   <div class="nav container">
-    <div class="nav-left">
-      <img src="logo.jpg" alt="Logó" class="nav-logo">
-      <span>Gulyás Gábor</span>
+    <!-- felső sor: logo + név/e-portfólió + hamburger -->
+    <div class="nav-row">
+      <div class="nav-left">
+        <img src="logo.jpg" alt="Logó" class="nav-logo">
+      </div>
+
+      <div class="nav-title">
+        <div class="nav-name"><span>Gulyás Gábor</span></div>
+        <div class="nav-subtitle">e-portfólió</div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menü megnyitása">
+        ☰
+      </button>
     </div>
-    
-<div class="nav-left">
-  <img src="logo.jpg" class="nav-logo">
-  <span>Gulyás Gábor</span>
-</div>
 
-<button class="nav-toggle" onclick="toggleMenu()">☰</button>
-
-<nav class="nav-links">
-  ...
-</nav>
-
-<div class="lang-switch">
-  ...
-</div>
-
+    <!-- menü -->
     <nav class="nav-links">
       <a href="#about">Rólam</a>
       <a href="#projects">Projektek</a>
@@ -610,19 +579,17 @@
       <a href="#contact">Kapcsolat</a>
     </nav>
 
+    <!-- nyelvváltó -->
     <div class="lang-switch">
       <span style="color:#9ca3af;">Nyelv:</span>
-      <!-- HU: mindig a .hu oldalra -->
       <button class="lang-btn"
               onclick="window.location.href='https://gulyasgabor.hu'; return false;">
         HU
       </button>
-      <!-- EN: mindig a .com oldalra -->
       <button class="lang-btn"
               onclick="window.location.href='https://gulyasgabor.com'; return false;">
         EN
       </button>
-      <!-- DE / HR: Google Translate a magyar oldalról -->
       <button class="lang-btn" onclick="translatePage('de')">DE</button>
     </div>
   </div>
@@ -856,7 +823,6 @@
       <h2>Munkatapasztalat</h2>
 
       <div class="timeline">
-        <!-- Jelenlegi pozíció -->
         <div class="timeline-item">
           <div class="timeline-date">03/2024 – Jelenleg</div>
           <div class="timeline-role">Közérdekű Munka Irányító Coordinator</div>
@@ -868,7 +834,6 @@
           </p>
         </div>
 
-        <!-- Közérdekű Munka – HMPPS -->
         <div class="timeline-item">
           <div class="timeline-date">06/2021 – 03/2024</div>
           <div class="timeline-role">Közérdekű Munka Supervisor</div>
@@ -880,7 +845,6 @@
           </p>
         </div>
 
-        <!-- Közérdekű Munka – MTC Novo / London CRC -->
         <div class="timeline-item">
           <div class="timeline-date">05/2020 – 06/2021</div>
           <div class="timeline-role">Közérdekű Munka Supervisor</div>
@@ -891,7 +855,6 @@
           </p>
         </div>
 
-        <!-- Közérdekű Munka – Sanctuary / Criminal Justice -->
         <div class="timeline-item">
           <div class="timeline-date">10/2017 – 05/2020</div>
           <div class="timeline-role">Közérdekű Munka Supervisor</div>
@@ -903,7 +866,6 @@
           </p>
         </div>
 
-        <!-- Taxis -->
         <div class="timeline-item">
           <div class="timeline-date">11/2009 – 03/2020</div>
           <div class="timeline-role">Taxisofőr (Egyéni vállalkozó)</div>
@@ -914,7 +876,6 @@
           </p>
         </div>
 
-        <!-- Domino's -->
         <div class="timeline-item">
           <div class="timeline-date">05/2009 – 11/2009</div>
           <div class="timeline-role">Pizza Futár</div>
@@ -925,7 +886,6 @@
           </p>
         </div>
 
-        <!-- WA Turner -->
         <div class="timeline-item">
           <div class="timeline-date">12/2008 – 05/2009</div>
           <div class="timeline-role">Operátor</div>
@@ -936,7 +896,6 @@
           </p>
         </div>
 
-        <!-- Sürgősségi munkák Magyarországon -->
         <div class="timeline-item">
           <div class="timeline-date">2006 – 2008</div>
           <div class="timeline-role">Mentőápoló · Mentésirányító · Sürgősségi ápoló</div>
@@ -946,7 +905,6 @@
           </p>
         </div>
 
-        <!-- Ambulance paramedic -->
         <div class="timeline-item">
           <div class="timeline-date">2002 – 2006</div>
           <div class="timeline-role">Mentőápoló / Paramedic</div>
@@ -957,7 +915,6 @@
           </p>
         </div>
 
-        <!-- Katonaság -->
         <div class="timeline-item">
           <div class="timeline-date">2001 – 2002</div>
           <div class="timeline-role">Sorkatonai szolgálat</div>
@@ -970,7 +927,6 @@
       </div>
     </div>
 
-    <!-- Jobb oldal: készségek (mehet a korábbi verzió változtatás nélkül) -->
     <div>
       <div class="section-subtitle">Kompetenciák</div>
       <h2>Készségek összefoglalva</h2>
@@ -1009,7 +965,7 @@
     </div>
   </div>
 </section>
-  
+
 <!-- DOCUMENTS & DOWNLOADS -->
 <section id="documents">
   <div class="container two-col">
@@ -1090,7 +1046,7 @@
     new google.translate.TranslateElement({ pageLanguage: 'hu' }, 'google_translate_element');
   }
 
-  // programozott nyelvváltás DE / HR-hez
+  // programozott nyelvváltás DE-hez
   function translatePage(language) {
     var translateElement = document.querySelector("#google_translate_element select");
     if (translateElement) {
@@ -1103,17 +1059,24 @@
       }
     }
   }
-</script>
-  <script>
-function toggleMenu() {
-  document.querySelector('.nav-links').classList.toggle('open');
-}
-</script>
 
+  // hamburger menü
+  document.addEventListener("DOMContentLoaded", function () {
+    var navToggle = document.querySelector(".nav-toggle");
+    var navLinks = document.querySelector(".nav-links");
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("open");
+      });
+    }
+  });
+</script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
+
+
 
 
 
