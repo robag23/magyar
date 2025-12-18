@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gulyás Gábor – MBA · Felhő · Nearshore IT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gulyás Gábor – köztisztviselő és üzleti szakember, MBA in International Business (kitüntetéssel) és BSc Cloud Computing (First Class) végzettséggel. Kutatási fókusz: nearshore IT támogatás, közszféra működése és digitális transzformáció.">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a { color: #7dd3fc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    section { padding: 80px 0; }
+    h1, h2, h3, h4 {
+      letter-spacing: 0.03em;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-subtitle {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== HEADER + NAV ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1.5rem;
+      gap: 1rem;
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #020617;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .nav-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .nav-name span {
+      color: #38bdf8;
+    }
+
+    .nav-subtitle {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+    }
+
+    /* hamburger: desktopon elrejtve */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(148,163,184,0.7);
+      border-radius: 999px;
+      padding: 0.25rem 0.6rem;
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      padding: 0.1rem 0;
+      transition: color 0.2s ease;
+      border-bottom: none;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* LANGUAGE SWITCH */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    .lang-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.15rem 0.6rem;
+      cursor: pointer;
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+    }
+    .lang-btn:hover {
+      border-color: #38bdf8;
+    }
+
+    /* ===== HERO – dinamikus tech háttér ===== */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -25%;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56,189,248,0.45), transparent 55%),
+        radial-gradient(circle at 85% 0%, rgba(34,197,94,0.35), transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(59,130,246,0.4), transparent 55%),
+        conic-gradient(from 200deg at 50% 50%, rgba(15,23,42,0.0), rgba(15,23,42,0.7), rgba(15,23,42,0.0));
+      animation: heroGlow 22s ease-in-out infinite alternate;
+      opacity: 0.95;
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(120deg, rgba(15,23,42,0.85), rgba(15,23,42,0.9)),
+        linear-gradient(90deg,
+          rgba(148,163,184,0.13) 1px,
+          transparent 1px),
+        linear-gradient(0deg,
+          rgba(148,163,184,0.12) 1px,
+          transparent 1px);
+      background-size:
+        100% 100%,
+        40px 40px,
+        40px 40px;
+      mix-blend-mode: soft-light;
+      opacity: 0.9;
+      z-index: -1;
+    }
+    @keyframes heroGlow {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-4%, -2%, 0) scale(1.08); }
+      100% { transform: translate3d(3%, 4%, 0) scale(1.05); }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 0.7rem;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .hero-title span { color: #38bdf8; }
+    .hero-text {
+      font-size: 0.98rem;
+      color: #d1d5db;
+      max-width: 36rem;
+      margin-bottom: 0.8rem;
+    }
+    .hero-sub {
+      font-size: 0.88rem;
+      color: #9ca3af;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+    .tag {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.75rem;
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.7);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .btn-primary, .btn-outline {
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #0ea5e9);
+      color: #020617;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: #64748b;
+    }
+    .hero-email {
+      font-size: 0.85rem;
+      color: #d1d5db;
+      margin-top: 0.3rem;
+    }
+
+    /* HERO CARD */
+    .hero-card {
+      border-radius: 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.5rem 1.35rem;
+      background: radial-gradient(circle at top, rgba(15,23,42,0.2), rgba(15,23,42,0.96));
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      text-align: left;
+    }
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .hero-card-photo {
+      width: 68px;
+      height: 68px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(148,163,184,0.9);
+      background: #020617;
+    }
+    .hero-card-title { font-size: 1rem; font-weight: 600; }
+    .hero-card-sub { font-size: 0.8rem; color: #9ca3af; }
+    .hero-card-divider {
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      margin: 0.6rem 0 0.8rem;
+    }
+    .hero-card-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.82rem;
+      color: #e5e7eb;
+    }
+    .hero-card-list li {
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+    .hero-card-bullet {
+      margin-top: 0.28rem;
+      font-size: 0.6rem;
+      color: #38bdf8;
+    }
+
+    /* ===== Visitor pill (HU) ===== */
+    .visitor-pill {
+      margin-top: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(2, 6, 23, 0.55);
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      color: #cbd5e1;
+      font-size: 0.82rem;
+      width: fit-content;
+    }
+    .visitor-pill strong { color: #e5e7eb; font-weight: 700; }
+
+    /* GRID LAYOUTS */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+    .card {
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.2rem 1.3rem;
+      background: rgba(15, 23, 42, 0.9);
+    }
+    .card h3, .card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .muted { color: #9ca3af; font-size: 0.9rem; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #a5b4fc;
+      margin-bottom: 0.35rem;
+    }
+    .project-title { font-weight: 600; margin-bottom: 0.4rem; }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      border-left: 1px solid rgba(148, 163, 184, 0.4);
+      margin-left: 0.5rem;
+      padding-left: 1.25rem;
+    }
+    .timeline-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.1rem;
+      top: 0.25rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+    .timeline-date {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-bottom: 0.15rem;
+    }
+    .timeline-role { font-weight: 600; font-size: 0.95rem; }
+    .timeline-org { font-size: 0.85rem; color: #e5e7eb; }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+    }
+    .skill-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.2rem 0.6rem;
+      color: #cbd5f5;
+    }
+
+    .link-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+    .link-list li { margin-bottom: 0.35rem; }
+
+    /* CONTACT */
+    .contact-box {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* ===== Dokumentum-kérés (Modal) ===== */
+    .req-note {
+      margin-top: 0.6rem;
+      font-size: 0.82rem;
+      color: #9ca3af;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.68);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 1.2rem;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      width: 100%;
+      max-width: 640px;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.98);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+      padding: 1.2rem 1.2rem 1rem;
+    }
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .modal-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+    .modal-subtitle {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 0.15rem;
+    }
+    .modal-close {
+      background: transparent;
+      border: 1px solid rgba(148,163,184,0.45);
+      color: #e5e7eb;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+    .modal-close:hover { border-color: #38bdf8; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .form-row { display: flex; flex-direction: column; gap: 0.35rem; }
+    label { font-size: 0.8rem; color: #cbd5e1; }
+    input, textarea, select {
+      border-radius: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(2, 6, 23, 0.65);
+      color: #e5e7eb;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.92rem;
+      outline: none;
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    input:focus, textarea:focus, select:focus { border-color: #38bdf8; }
+
+    .form-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .btn-submit {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: linear-gradient(135deg, #22c55e, #0ea5e9);
+      color: #020617;
+    }
+    .btn-cancel {
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      cursor: pointer;
+      background: transparent;
+      color: #e5e7eb;
+    }
+    .btn-cancel:hover { border-color: #38bdf8; }
+
+    .privacy {
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+    .status-msg {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      display: none;
+    }
+    .status-msg.show { display: block; }
+
+    /* ===== RESPONSIVE ÁLTALÁNOS ===== */
+    @media (max-width: 840px) {
+      .hero-grid, .two-col { grid-template-columns: 1fr; }
+      .hero { padding-top: 2.3rem; padding-bottom: 2.8rem; }
+      section { padding: 60px 0; }
+      .hero-card { margin-top: 1.4rem; }
+      .nav { padding-inline: 1rem; }
+    }
+
+    /* ===== MOBIL NAV (max-width: 640px) ===== */
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.5rem 1rem;
+        gap: 0.4rem;
+      }
+      .nav-row {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .nav-left { justify-content: flex-start; }
+      .nav-title {
+        flex: 1;
+        text-align: center;
+      }
+      .nav-toggle {
+        display: block;
+        background: transparent;
+        border: 1px solid rgba(148,163,184,0.5);
+        padding: 0.35rem 0.65rem;
+        border-radius: 6px;
+        font-size: 1.4rem;
+        color: #e5e7eb;
+        cursor: pointer;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 0.65rem;
+        margin-top: 0.4rem;
+        padding-top: 0.3rem;
+      }
+      .nav-links.open { display: flex; }
+
+      .lang-switch {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.2rem;
+        padding-bottom: 0.2rem;
+      }
+
+      .form-grid { grid-template-columns: 1fr; }
+      .form-actions { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HIDDEN Google Translate element -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<header>
+  <div class="nav container">
+    <div class="nav-row">
+      <div class="nav-left">
+        <img src="logo.jpg" alt="Logó" class="nav-logo">
+      </div>
+
+      <div class="nav-title">
+        <div class="nav-name"><span>Gulyás Gábor</span></div>
+        <div class="nav-subtitle">e-portfólió</div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menü megnyitása">☰</button>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#about">Rólam</a>
+      <a href="#projects">Projektek</a>
+      <a href="#experience">Tapasztalat</a>
+      <a href="#documents">Dokumentumok</a>
+      <a href="#contact">Kapcsolat</a>
+    </nav>
+
+    <div class="lang-switch">
+      <span style="color:#9ca3af;">Nyelv:</span>
+      <button class="lang-btn" onclick="window.location.href='https://gulyasgabor.hu'; return false;">HU</button>
+      <button class="lang-btn" onclick="window.location.href='https://gulyasgabor.com'; return false;">EN</button>
+      <button class="lang-btn" onclick="translatePage('de')">DE</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-kicker">MBA · Felhő alapú informatika · Nearshore IT</div>
+      <h1 class="hero-title">
+        <span>Gulyás Gábor</span> – köztisztviselő és technológiában jártas üzleti szakember.
+      </h1>
+      <p class="hero-text">
+        MBA in International Business végzettséget szereztem (kitüntetéssel), valamint First Class
+        besorolású BSc Cloud Computing diplomával rendelkezem. Több mint 20 éves szakmai
+        tapasztalatom nagy része a brit közszférához kötődik, ahol közösségi projekteken,
+        operatív működésen, munkavédelmen és gyakorlati IT-támogatáson dolgozom.
+      </p>
+      <p class="hero-sub">
+        Kutatási érdeklődésem középpontjában a nearshore IT támogatás, a közszféra működése,
+        a digitális transzformáció, a munkavédelem, valamint a társadalmi célú technológiák
+        állnak – például egy nők elleni erőszak megelőzését segítő mobilalkalmazás koncepciója.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">MBA – International Business (kitüntetés)</span>
+        <span class="tag">BSc Cloud Computing – First Class</span>
+        <span class="tag">Közszféra</span>
+        <span class="tag">Nearshore IT</span>
+        <span class="tag">Digitális transzformáció</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">Projektek megtekintése</a>
+        <a href="#documents" class="btn-outline">Dokumentumok megnyitása</a>
+      </div>
+
+      <div class="hero-email">
+        E-mail:
+        <a href="mailto:info@gulyasgabor.com">info@gulyasgabor.com</a> ·
+        <a href="mailto:info@gulyasgabor.hu">info@gulyasgabor.hu</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="hero-card-header">
+        <img src="about.jpg" alt="Gulyás Gábor portré" class="hero-card-photo">
+        <div>
+          <div class="hero-card-title">Szakmai és kutatási profil</div>
+          <div class="hero-card-sub">London · Közszféra · IT &amp; üzlet</div>
+        </div>
+      </div>
+      <div class="hero-card-divider"></div>
+      <ul class="hero-card-list">
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>MBA in International Business (kitüntetéssel) és BSc Cloud Computing (First Class) végzettségek.</span>
+        </li>
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>Fókuszban a közösségi projektek, a munkavédelem, az operatív működés és a gyakorlati digitális eszközök.</span>
+        </li>
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>Akadémiai munka nearshore IT támogatási modellekről brit szervezetek számára, valamint egy VAW (Violence Against Women) megelőző mobilapp koncepciójáról.</span>
+        </li>
+        <li>
+          <span class="hero-card-bullet">●</span>
+          <span>Hosszabb távon doktori szintű tanulmányokban gondolkodom, gyakorlati, alkalmazott üzleti és technológiai fókuszsal.</span>
+        </li>
+      </ul>
+
+      <!-- Visitor count (starts from 532) -->
+      <div class="visitor-pill">👁️ Látogatók: <strong id="visitorCount">—</strong></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container two-col">
+    <div>
+      <div class="section-subtitle">Rólam</div>
+      <h2>Ki vagyok?</h2>
+      <p style="margin-bottom: 1rem;">
+        Londonban élek és dolgozom köztisztviselőként, több mint 20 éves szakmai tapasztalattal.
+        Munkám nagy része a közszférához kapcsolódik: közösségi projektek szervezése, munkavédelem,
+        logisztika, operatív támogatás és egyszerű, működő IT-megoldások bevezetése a mindennapi
+        munkába. Szeretem a valós problémákat gyakorlatias módon megoldani, támogatni a csapatokat,
+        és átláthatóbbá, biztonságosabbá tenni a folyamatokat.
+      </p>
+      <p style="margin-bottom: 1rem;">
+        A University of Wales Trinity Saint David londoni campusán szereztem meg az
+        <strong>MBA in International Business</strong> diplomámat (kitüntetéses minősítéssel),
+        valamint a <strong>BSc Cloud Computing</strong> (First Class) végzettségemet. Az MBA
+        disszertációmban a nearshore IT támogatás lehetőségeit vizsgáltam brit kis- és
+        középvállalkozások számára, míg korábbi BSc munkámban egy nők elleni erőszakot
+        megelőző mobilalkalmazás koncepcióját dolgoztam ki, disszertáció, viva és poszter formájában.
+      </p>
+      <p>
+        Jelenlegi szakmai fókuszom a <strong>üzletmenedzsment, közszféra működés, digitális
+        eszközök és munkavédelem</strong> metszetében van. Érdekel, hogyan lehet ezeket a
+        területeket lépésről lépésre, adatvezérelt módon és reflexióval fejleszteni. A
+        jövőben szeretném ezt a tudást doktori szinten tovább építeni.
+      </p>
+    </div>
+
+    <div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Alapadatok</h3>
+        <p class="muted">
+          • Név: Gulyás Gábor<br>
+          • Helyszín: London, Egyesült Királyság<br>
+          • Jelenlegi pozíció: köztisztviselő (közösségi projektek &amp; operatív támogatás)<br>
+          • Tapasztalat: 20+ év<br>
+          • Nyelvek: magyar (anyanyelvi), angol (jó), alap szintű német és horvát<br>
+          • BCS (British Computer Society) regisztrált tag
+        </p>
+      </div>
+      <div class="card">
+        <h3>Tanulmányok és képesítések</h3>
+        <p class="muted">
+          • MBA International Business – kitüntetéses minősítés (UWTSD London)<br>
+          • BSc Cloud Computing – First Class (UWTSD London)<br>
+          • Mentőápoló, NVQ L4 – Pécs, Magyarország<br>
+          • ECDL számítástechnikai végzettség, NVQ L4<br>
+          • Érettségi<br>
+          • IOSH Managing Safely (munkavédelem és kockázatkezelés)
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-subtitle">Projektek</div>
+    <h2>Válogatott projektek és esettanulmányok</h2>
+    <p class="muted" style="max-width: 650px; margin-bottom: 1.8rem;">
+      Néhány példa olyan munkákra – akadémiai és gyakorlati projektekre –, ahol az üzleti
+      gondolkodást, az informatikai tudást és a közszféra tapasztalatait kombináltam.
+      A részletes dokumentumok a „Dokumentumok &amp; letöltések” szekcióban érhetők el.
+    </p>
+
+    <div class="projects-grid">
+      <article class="card">
+        <div class="project-badge">MBA disszertáció</div>
+        <div class="project-title">Nearshore IT támogatás brit szervezetek számára</div>
+        <p class="muted">
+          Üzletfejlesztési tanulmány arról, hogyan profitálhatnak a brit kis- és
+          középvállalkozások a Közép- és Kelet-Európában – különösen Magyarországon –
+          működő nearshore IT csapatokból. A munka a szolgáltatási szintekre,
+          kommunikációra, kultúrára és kockázatokra fókuszál, gyakorlati szemlélettel.
+        </p>
+        <div class="project-tags">
+          <span>#InternationalBusiness</span>
+          <span>#NearshoreIT</span>
+          <span>#KKV</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="project-badge">BSc kutatás</div>
+        <div class="project-title">VAW (nők elleni erőszak) megelőző mobilapp</div>
+        <p class="muted">
+          Mobilalkalmazás koncepció, amely a nők elleni erőszak kockázatának kitett személyek
+          támogatását célozza. Fókuszban a könnyen elérhető információ, a vészhelyzeti
+          útvonalak és az adatvédelem. A téma disszertációban, viva prezentációban és
+          kutatási poszterben is feldolgozásra került.
+        </p>
+        <div class="project-tags">
+          <span>#SocialImpact</span>
+          <span>#MobileApp</span>
+          <span>#UX</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="project-badge">Felhő projekt</div>
+        <div class="project-title">Cloud Computing a gyakorlatban</div>
+        <p class="muted">
+          Olyan alapszintű, mégis gyakorlati szemléletű munka, amely azt vizsgálja,
+          hogyan tudnak szervezetek biztonságosan és hatékonyan felhőszolgáltatásokra
+          áttérni. Külön figyelmet kapott a biztonság, a skálázhatóság, a
+          megbízhatóság, és egy példa migrációs terv is készült.
+        </p>
+        <div class="project-tags">
+          <span>#Cloud</span>
+          <span>#Biztonság</span>
+          <span>#Architektúra</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="project-badge">Üzleti koncepció</div>
+        <div class="project-title">HungaTech – nearshore IT támogatási ötlet</div>
+        <p class="muted">
+          Márkanév és működési modell koncepciója 1–3. szintű IT-támogatásra, amelyet
+          Magyarországról lehetne nyújtani brit ügyfelek felé. A projekt piackutatást,
+          szolgáltatástervezést és pénzügyi vázlatot is tartalmazott.
+        </p>
+        <div class="project-tags">
+          <span>#Vállalkozás</span>
+          <span>#ITSupport</span>
+          <span>#Szolgáltatástervezés</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="project-badge">Digitális marketing</div>
+        <div class="project-title">Sziget-Baracsi Ingatlan márkaépítés</div>
+        <p class="muted">
+          Kis ingatlanos márka felépítése online hirdetésekkel, vizuális anyagokkal
+          és ingatlanleírásokkal Magyarországon. A cél a világos kommunikáció és az
+          egyszerű, könnyen kezelhető digitális eszközök használata volt.
+        </p>
+        <div class="project-tags">
+          <span>#Branding</span>
+          <span>#Ingatlan</span>
+          <span>#DigitálisMarketing</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container two-col">
+    <div>
+      <div class="section-subtitle">Tapasztalat</div>
+      <h2>Munkatapasztalat</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">03/2024 – Jelenleg</div>
+          <div class="timeline-role">Közérdekű Munka Irányító Coordinator</div>
+          <div class="timeline-org">HMPPS NPS London · Egyesült Királyság</div>
+          <p class="muted">
+            Közérdekű Munka helyszínek és projektek koordinálása, kapcsolat a fogadó
+            szervezetekkel, logisztika és munkavédelem, valamint egyszerű adminisztratív
+            és IT támogatás a felügyelők és csapatok számára.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">06/2021 – 03/2024</div>
+          <div class="timeline-role">Közérdekű Munka Supervisor</div>
+          <div class="timeline-org">HMPPS NPS London · Egyesült Királyság</div>
+          <p class="muted">
+            Közérdekű Munka csoportok vezetése terepen, a biztonságos és előírásoknak
+            megfelelő munkavégzés biztosítása, valamint együttműködés önkormányzatokkal
+            és fogadó intézményekkel.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">05/2020 – 06/2021</div>
+          <div class="timeline-role">Közérdekű Munka Supervisor</div>
+          <div class="timeline-org">MTC Novo / London CRC · Egyesült Királyság</div>
+          <p class="muted">
+            Közérdekű Munka munkák felügyelete, a résztvevők irányítása, határidők,
+            szabályok és minőségi elvárások betartatása, kommunikáció a partnerekkel.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">10/2017 – 05/2020</div>
+          <div class="timeline-role">Közérdekű Munka Supervisor</div>
+          <div class="timeline-org">Sanctuary / Criminal Justice · Egyesült Királyság</div>
+          <p class="muted">
+            Közérdekű Munka projektek tervezése és megvalósítása, csoportok vezetése terepen,
+            kapcsolattartás a fogadó szervezetekkel és a büntető igazságszolgáltatási
+            rendszer szereplőivel.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">11/2009 – 03/2020</div>
+          <div class="timeline-role">Taxisofőr (Egyéni vállalkozó)</div>
+          <div class="timeline-org">Sevenoaks · Egyesült Királyság</div>
+          <p class="muted">
+            Önálló vállalkozóként személyszállítás, ügyfélkezelés, útvonaltervezés és
+            biztonságos vezetés, hosszú távú törzsvendégkapcsolatok kialakítása.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">05/2009 – 11/2009</div>
+          <div class="timeline-role">Pizza Futár</div>
+          <div class="timeline-org">Domino's Pizza · Sevenoaks · Egyesült Királyság</div>
+          <p class="muted">
+            Ételkiszállítás, alapvető ügyfélkapcsolat és csapatmunka egy forgalmas
+            vendéglátó egységben.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">12/2008 – 05/2009</div>
+          <div class="timeline-role">Operátor</div>
+          <div class="timeline-org">WA Turner · Tunbridge Wells · Egyesült Királyság</div>
+          <p class="muted">
+            Operátori munka termelési környezetben, célok és minőségi követelmények
+            teljesítése.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2006 – 2008</div>
+          <div class="timeline-role">Mentőápoló · Mentésirányító · Sürgősségi ápoló</div>
+          <div class="timeline-org">OMSZ és Sürgősségi Osztály · Magyarország</div>
+          <p class="muted">
+            Több párhuzamos sürgősségi szerep: mentőápoló a mentőszolgálatnál, sürgősségi osztályos ápoló, valamint mentésirányító.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2002 – 2006</div>
+          <div class="timeline-role">Mentőápoló / Paramedic</div>
+          <div class="timeline-org">Mentőszolgálat · Magyarország</div>
+          <p class="muted">
+            Előrehaladott prehospitális sürgősségi ellátás, mentőegységekben végzett munka
+            nagy nyomás alatt, önálló döntéshozatal és csapatmunka.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2001 – 2002</div>
+          <div class="timeline-role">Sorkatonai szolgálat</div>
+          <div class="timeline-org">Magyar Honvédség · Magyarország</div>
+          <p class="muted">
+            Kötelező sorkatonai szolgálat teljesítése, fegyelem, állóképesség és
+            csapatszellem fejlesztése.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-subtitle">Kompetenciák</div>
+      <h2>Készségek összefoglalva</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Üzlet és menedzsment</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Projektkoordináció</span>
+            <span class="skill-chip">Érintetti kommunikáció</span>
+            <span class="skill-chip">Csapatvezetés</span>
+            <span class="skill-chip">Operatív tervezés</span>
+            <span class="skill-chip">Folyamatfejlesztés</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Technológia és adatok</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Felhő alapú informatika – alap szint</span>
+            <span class="skill-chip">IT támogatási alapfogalmak</span>
+            <span class="skill-chip">Python &amp; szkriptelés (egyetemi szint)</span>
+            <span class="skill-chip">SQL &amp; adatkezelés</span>
+            <span class="skill-chip">Digitális eszközök &amp; kimutatások</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Soft skillek</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Nyugodt hozzáállás stresszhelyzetben</span>
+            <span class="skill-chip">Multikulturális csapatmunka</span>
+            <span class="skill-chip">Ügyfél- és felhasználóközpontúság</span>
+            <span class="skill-chip">Gyakorlati problémamegoldás</span>
+            <span class="skill-chip">Reflektív tanulás</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS (MODOSITVA: kérés-alapú hozzáférés) -->
+<section id="documents">
+  <div class="container two-col">
+    <div>
+      <div class="section-subtitle">Dokumentumok</div>
+      <h2>Akadémiai munkák &amp; letöltések</h2>
+      <p class="muted">
+        Bizonyos dokumentumok csak kérésre érhetők el. Ez segít abban, hogy a megfelelő verziót osszam meg,
+        és kontrolláltan adjak hozzáférést. Kérés után átnézem, és jóváhagyás esetén küldök letöltési linket.
+      </p>
+      <p class="req-note">
+        ✅ A letöltések kézi jóváhagyással történnek · ⏳ A linkek időkorlátosak is lehetnek
+      </p>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>Önéletrajz (CV)</h3>
+        <ul class="link-list">
+          <li>📄 <a href="#" onclick="openRequestModal('Önéletrajz (CV)'); return false;">Önéletrajz letöltés kérése</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>Referenciák (3 típus)</h3>
+        <ul class="link-list">
+          <li>✉️ <a href="#" onclick="openRequestModal('Akadémiai referencia 1'); return false;">Akadémiai referencia 1 kérése</a></li>
+          <li>✉️ <a href="#" onclick="openRequestModal('Akadémiai referencia 2'); return false;">Akadémiai referencia 2 kérése</a></li>
+          <li>🏢 <a href="#" onclick="openRequestModal('Munkáltatói referencia'); return false;">Munkáltatói referencia kérése</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>MBA disszertáció – Nearshore IT támogatás</h3>
+        <ul class="link-list">
+          <li>🎓 <a href="#" onclick="openRequestModal('MBA disszertáció (Nearshore IT)'); return false;">Hozzáférés kérése (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>BSc kutatás – VAW megelőző mobilapp</h3>
+        <ul class="link-list">
+          <li>🎓 <a href="#" onclick="openRequestModal('BSc disszertáció (VAW app)'); return false;">Teljes disszertáció hozzáférés kérése (PDF)</a></li>
+          <li>📊 <a href="#" onclick="openRequestModal('BSc Viva prezentáció (VAW app)'); return false;">Viva prezentáció hozzáférés kérése (PDF)</a></li>
+          <li>🖼️ <a href="#" onclick="openRequestModal('BSc kutatási poszter (VAW app)'); return false;">Kutatási poszter hozzáférés kérése (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>PhD kutatás</h3>
+        <ul class="link-list">
+          <li>📌 <a href="#" onclick="openRequestModal('PhD kutatási terv (Research Proposal)'); return false;">PhD kutatási terv kérése</a></li>
+          <li>📚 <a href="#" onclick="openRequestModal('PhD írásminta'); return false;">PhD írásminta kérése</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-subtitle">Online jelenlét</div>
+      <h2>Portfólió &amp; szakmai profilok</h2>
+      <div class="card">
+        <h3>Weboldalak és szakmai oldalak</h3>
+        <ul class="link-list">
+          <li>🌐 Portfólió (angol): <a href="https://gulyasgabor.com" target="_blank">gulyasgabor.com</a></li>
+          <li>🌐 Portfólió (magyar): <a href="https://gulyasgabor.hu" target="_blank">gulyasgabor.hu</a></li>
+          <li>💼 LinkedIn: <a href="https://www.linkedin.com/in/gabor-gulyas-bigg/" target="_blank">linkedin.com/in/gabor-gulyas-bigg</a></li>
+          <li>💻 GitHub: <a href="https://github.com/robag23" target="_blank">github.com/robag23</a></li>
+          <li>🛡️ HackTheBox: <span style="font-size:0.9rem;">felhasználó: robag23</span></li>
+          <li>📚 HyperionDev portfólió: <span style="font-size:0.9rem;">portfolio/GG23110011796</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact-box">
+    <div class="section-subtitle">Kapcsolat</div>
+    <h2>Lépjünk kapcsolatba</h2>
+    <p class="muted">
+      Ha szívesen beszélgetnél nearshore IT ötletekről, digitális működésről, közszféra
+      projektekről vagy jövőbeli tanulmányi/kutatási lehetőségekről, bátran írj nekem.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:info@gulyasgabor.com">info@gulyasgabor.com</a>
+      <a href="mailto:info@gulyasgabor.hu">info@gulyasgabor.hu</a>
+      <a href="https://wa.me/447455444965" target="_blank">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/gabor-gulyas-bigg/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © <span id="year"></span> Gulyás Gábor. Minden jog fenntartva.
+</footer>
+
+<!-- ===== Dokumentum-kérés MODAL ===== -->
+<div class="modal-backdrop" id="requestModalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="requestModalTitle">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="requestModalTitle">Hozzáférés kérése</div>
+        <div class="modal-subtitle" id="requestModalSubtitle">Kérlek add meg az adatokat. Átnézem és visszajelzek.</div>
+      </div>
+      <button class="modal-close" type="button" onclick="closeRequestModal()">✕</button>
+    </div>
+
+    <!-- Itt cseréld: REQUEST_ENDPOINT (Formspree/Getform/Basin stb.) -->
+    <form id="requestForm" method="POST" action="REQUEST_ENDPOINT">
+      <input type="hidden" name="requested_item" id="requestedItem" value="">
+
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="fullName">Teljes név</label>
+          <input id="fullName" name="full_name" type="text" required placeholder="Név">
+        </div>
+
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required placeholder="nev@szervezet.hu">
+        </div>
+
+        <div class="form-row">
+          <label for="organisation">Szervezet / Egyetem</label>
+          <input id="organisation" name="organisation" type="text" placeholder="Cég / Egyetem">
+        </div>
+
+        <div class="form-row">
+          <label for="purpose">Cél</label>
+          <select id="purpose" name="purpose" required>
+            <option value="" selected disabled>Válassz…</option>
+            <option>PhD jelentkezés</option>
+            <option>Álláspályázat</option>
+            <option>Kutatási együttműködés</option>
+            <option>Általános megtekintés</option>
+            <option>Egyéb</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top:0.8rem;">
+        <label for="message">Rövid üzenet (opcionális)</label>
+        <textarea id="message" name="message" placeholder="Pár sor, ami segít gyorsabban jóváhagyni…"></textarea>
+      </div>
+
+      <div class="privacy">
+        A kérés beküldésével hozzájárulsz, hogy az adataidat kizárólag a megkeresés megválaszolására használjam.
+        Törlési kéréshez írj: <a href="mailto:info@gulyasgabor.com">info@gulyasgabor.com</a>.
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-cancel" type="button" onclick="closeRequestModal()">Mégse</button>
+        <button class="btn-submit" type="submit">Kérés elküldése</button>
+      </div>
+
+      <div class="status-msg" id="statusMsg"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // dinamikus év
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Google Translate init (magyar az alapnyelv)
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'hu' }, 'google_translate_element');
+  }
+
+  // programozott nyelvváltás DE-hez
+  function translatePage(language) {
+    var translateElement = document.querySelector("#google_translate_element select");
+    if (translateElement) {
+      for (var i = 0; i < translateElement.options.length; i++) {
+        if (translateElement.options[i].value.indexOf(language) > -1) {
+          translateElement.selectedIndex = i;
+          translateElement.dispatchEvent(new Event('change'));
+          break;
+        }
+      }
+    }
+  }
+
+  // hamburger menü
+  document.addEventListener("DOMContentLoaded", function () {
+    var navToggle = document.querySelector(".nav-toggle");
+    var navLinks = document.querySelector(".nav-links");
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("open");
+      });
+    }
+  });
+
+  // ===== Látogatószámláló (local) 532-ről indulva
+  document.addEventListener("DOMContentLoaded", function () {
+    const BASE = 532;
+
+    const el = document.getElementById("visitorCount");
+    if (!el) return;
+
+    try {
+      const seenKey = "gg_portfolio_visitor_seen_v2";
+      const localCountKey = "gg_portfolio_local_counter_v2";
+
+      let localCount = parseInt(localStorage.getItem(localCountKey) || "0", 10);
+
+      // csak egyszer növeli ugyanazon böngészőben
+      if (!localStorage.getItem(seenKey)) {
+        localCount += 1;
+        localStorage.setItem(seenKey, "1");
+        localStorage.setItem(localCountKey, String(localCount));
+      }
+
+      el.textContent = String(BASE + localCount);
+    } catch (e) {
+      el.textContent = String(BASE);
+    }
+  });
+
+  // ===== Dokumentum-kérés modal logika
+  function openRequestModal(itemName) {
+    document.getElementById("requestModalBackdrop").classList.add("open");
+    document.getElementById("requestModalBackdrop").setAttribute("aria-hidden", "false");
+
+    document.getElementById("requestedItem").value = itemName;
+    document.getElementById("requestModalTitle").textContent = "Hozzáférés kérése: " + itemName;
+    document.getElementById("requestModalSubtitle").textContent =
+      "Kérlek add meg a részleteket. Jóváhagyás esetén e-mailben küldök letöltési linket.";
+  }
+
+  function closeRequestModal() {
+    document.getElementById("requestModalBackdrop").classList.remove("open");
+    document.getElementById("requestModalBackdrop").setAttribute("aria-hidden", "true");
+  }
+
+  document.getElementById("requestModalBackdrop").addEventListener("click", function (e) {
+    if (e.target === this) closeRequestModal();
+  });
+
+  document.getElementById("requestForm").addEventListener("submit", function () {
+    var msg = document.getElementById("statusMsg");
+    msg.textContent = "Köszönöm! A kérésed elküldve. Átnézem, és e-mailben visszajelzek.";
+    msg.classList.add("show");
+    setTimeout(function () { closeRequestModal(); }, 900);
+  });
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
